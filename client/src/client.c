@@ -60,7 +60,7 @@ int main(void)
 	if (enviar_handshake(conexion, handshake) == 0) {
 	    log_info(logger, "Buenos días señor servidor");
 	} else {
-	    log_info(logger, "Uh, te re enojaste");
+	    log_info(logger, "Uh, te re enojaste %c", '\U0001F928');
 		exit(EXIT_FAILURE); //tengo mis dudas de este uso del exit()
 	}
 
