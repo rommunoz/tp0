@@ -4,9 +4,6 @@ t_log* logger;
 
 int iniciar_servidor(void)
 {
-	// Quitar esta línea cuando hayamos terminado de implementar la funcion
-	assert(!"no implementado!");
-
 	int socket_servidor, err;
 
 	struct addrinfo hints, *servinfo, *p;
@@ -42,15 +39,12 @@ int iniciar_servidor(void)
 	freeaddrinfo(servinfo);
 
 	log_trace(logger, "Listo para escuchar a mi cliente");
-	
+
 	return socket_servidor;
 }
 
 int esperar_cliente(int socket_servidor)
 {
-	// Quitar esta línea cuando hayamos terminado de implementar la funcion
-	assert(!"no implementado!");
-
 	// Aceptamos un nuevo cliente
 	int socket_cliente = accept(socket_servidor, NULL, NULL);
 

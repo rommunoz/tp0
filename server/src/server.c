@@ -10,6 +10,7 @@ int main(void) {
 
 	int server_fd = iniciar_servidor();
 	log_info(logger, "Servidor listo para recibir al cliente");
+	
 	int cliente_fd = esperar_cliente(server_fd);
 	//dudoso, capaz esta de mas esto
 	if (cliente_fd == -1){
@@ -31,6 +32,7 @@ int main(void) {
 			lista = recibir_paquete(cliente_fd);
 			log_info(logger, "Me llegaron los siguientes valores:\n");
 			list_iterate(lista, (void*) iterator);
+			list_destroy(lista);
 			break;
 		case -1:
 			log_error(logger, "el cliente se desconecto. Terminando servidor");
@@ -50,7 +52,7 @@ void iterator(char* value) {
 	log_info(logger,"%s", value);
 }
 
-void terminar_programa (int server_fd, log_t *logger){
+void terminar_programa (int server_fd, t_log *logger){
 	close(server_fd);
 	log_destroy(logger);
 }
